@@ -6,7 +6,7 @@ package pojo;
  */
 public class Customer {
     private Integer id;
-    private String custName;
+    public String custName;
 
     @Override
     public String toString() {

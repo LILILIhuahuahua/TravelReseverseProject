@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>客户管理</title>
+<title>客户预定详情</title>
 <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 	<script type="text/javascript">
 		$(function(){
@@ -24,40 +24,73 @@
 			});
 		});
 	</script>
+	<style type="text/css">
+			h1 {
+		text-align: center;
+		margin-top: 200px;
+	}
+	h3 {
+		color: red;
+		margin-left: 50px;
+	}
+	h2{
+		margin-left: 50px;
+		margin-bottom: 10px;
+	}
+	h1 a {
+		color:red;
+	}
+	input {
+
+		width: 60px;
+		text-align: center;
+	}
+		table{
+			margin-bottom: 10px;
+		}
+	</style>
 </head>
 <body>
 	
 	<div id="header">
 			<!--<img class="logo_img" alt="" src="../../static/img/logo.gif" >-->
-			<span class="wel_word">客户管理系统</span>
+			<span class="wel_word">客户预定详情</span>
 		<!--静态包含管理界面-->
 		<%@include file="/pages/common/manager_mune.jsp"%>
+
 	</div>
-	
+
 	<div id="main">
+
+		<h2>"${requestScope.reserDetail.customer.custName}"的预约详情</h2>
+		<h2>总价：</h2>
+		<h3>${requestScope.reserDetail.sumPrice}</h3>
 		<table align="center">
 			<tr>
-				<td>客户ID</td>
-				<td>客户名字</td>
-				<td colspan="3">操作</td>
+				<td>预定ID</td>
+				<td>预约类型</td>
+				<td>预约详情</td>
+				<td>价格</td>
+				<td colspan="1">操作</td>
 			</tr>
 			<!--使用JSTL进行全部图书的展示-->
-			<c:forEach items="${requestScope.customerList}" var="customer">
+			<c:forEach items="${requestScope.reserDetail.reserItems}" var="item">
 				<tr>
-					<td>${customer.id}</td>
-					<td>${customer.custName}</td>
-					<td><a href="customerServlet?action=getCustomer&custName=${customer.custName}&method=updateCustomer">修改</a></td>
-					<td><a class="deleteClass" href="customerServlet?action=deleteCustomer&custName=${customer.custName}">删除</a></td>
-					<td><a class="deleteClass" href="customerServlet?action=detailCustomerReservation&custName=${customer.custName}">详情</a></td>
+					<td>${item.id}</td>
+					<td>${item.resvType}</td>
+					<td>${item.resvDetail}</td>
+					<td>${item.price}</td>
+					<td><a class="deleteClass" >删除</a></td>
 				</tr>
 			</c:forEach>
+
 			
 			<tr>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="customer_edit.jsp?method=addCustomer">添加客户</a></td>
+
 			</tr>	
 		</table>
 	</div>

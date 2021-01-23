@@ -33,7 +33,7 @@ public class ReservationDaoImpl extends BaseDao implements ReservationsDao {
     @Override
     public int addReservation(Reservation reservation) {
         String sql = "insert into t_reservations(`custId`,`resvType`,`resvId`) values(?,?,?) ";
-        return update(sql,reservation.getCustId(),reservation.getResvType(),reservation.getCustId());
+        return update(sql,reservation.getCustId(),reservation.getResvType(),reservation.getResvId());
     }
 
     @Override

@@ -39,7 +39,7 @@
 			<tr>
 				<td>客户ID</td>
 				<td>客户名字</td>
-				<td colspan="2">操作</td>
+				<td colspan="3">操作</td>
 			</tr>
 			<!--使用JSTL进行全部图书的展示-->
 			<c:forEach items="${requestScope.customerList}" var="customer">
@@ -48,6 +48,7 @@
 					<td>${customer.custName}</td>
 					<td><a href="customerServlet?action=getCustomer&custName=${customer.custName}&method=updateCustomer">修改</a></td>
 					<td><a class="deleteClass" href="customerServlet?action=deleteCustomer&custName=${customer.custName}">删除</a></td>
+					<td><a class="deleteClass" href="customerServlet?action=detailCustomerReservation&custName=${customer.custName}">详情</a></td>
 				</tr>
 			</c:forEach>
 			

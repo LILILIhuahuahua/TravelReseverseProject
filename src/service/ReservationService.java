@@ -1,15 +1,14 @@
-package dao;
+package service;
 
-import pojo.Hotle;
 import pojo.Reservation;
 
 import java.util.List;
 
 /**
  * @author HuaHua
- * @create 2021-01-22 19:48
+ * @create 2021-01-23 18:58
  */
-public interface ReservationsDao {
+public interface ReservationService {
     public Reservation queryReservationByresvKey(Integer resvKey);
 
     public Reservation queryReservationBycustId(Integer custId);
@@ -19,6 +18,4 @@ public interface ReservationsDao {
     public int addReservation(Reservation reservation);
 
     public List<Reservation> queryAllReservation();
-
-    //public List<Reservation> queryTargetReservationByCustName();
 }

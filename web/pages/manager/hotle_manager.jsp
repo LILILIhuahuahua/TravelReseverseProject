@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>客户管理</title>
+<title>酒店预定系统</title>
 <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 	<script type="text/javascript">
 		$(function(){
@@ -24,40 +24,75 @@
 			});
 		});
 	</script>
+	<style type="text/css">
+		h1 {
+			text-align: center;
+			margin-top: 200px;
+		}
+		h2 {
+			text-align: center;
+			color: red;
+		}
+
+		h1 a {
+			color:red;
+		}
+		input {
+
+			width: 60px;
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	
 	<div id="header">
 			<!--<img class="logo_img" alt="" src="../../static/img/logo.gif" >-->
-			<span class="wel_word">客户管理系统</span>
+			<span class="wel_word">酒店预定系统</span>
 		<!--静态包含管理界面-->
 		<%@include file="/pages/common/manager_mune.jsp"%>
+
 	</div>
-	
+	<h2>${requestScope.result}</h2>
 	<div id="main">
 		<table align="center">
 			<tr>
-				<td>客户ID</td>
-				<td>客户名字</td>
-				<td colspan="3">操作</td>
+				<td>酒店ID</td>
+				<td>酒店名</td>
+				<td>酒店位子</td>
+				<td>酒店价格</td>
+				<td>酒店房间总数</td>
+				<td>酒店剩余房间数</td>
+				<td>预定客户名字</td>
+				<td colspan="2">操作</td>
 			</tr>
-			<!--使用JSTL进行全部图书的展示-->
-			<c:forEach items="${requestScope.customerList}" var="customer">
-				<tr>
-					<td>${customer.id}</td>
-					<td>${customer.custName}</td>
-					<td><a href="customerServlet?action=getCustomer&custName=${customer.custName}&method=updateCustomer">修改</a></td>
-					<td><a class="deleteClass" href="customerServlet?action=deleteCustomer&custName=${customer.custName}">删除</a></td>
-					<td><a class="deleteClass" href="customerServlet?action=detailCustomerReservation&custName=${customer.custName}">详情</a></td>
-				</tr>
-			</c:forEach>
+
+				<!--使用JSTL进行全部图书的展示-->
+				<c:forEach items="${requestScope.hotleList}" var="hotle">
+					<tr>
+						<form action="hotleServlet" method="get">
+							<input type="hidden" name="action" value="resevaseHotle" />
+							<td><input align="id" name="id" type="text" value="${hotle.id}"/></td>
+							<td><input name="name" type="text" value="${hotle.name}"/></td>
+							<td><input name="location" type="text" value="${hotle.location}"/></td>
+							<td><input name="price" type="text" value="${hotle.price}"/></td>
+							<td><input name="numRooms" type="text" value="${hotle.numRooms}"/></td>
+							<td><input name="numAvail" type="text" value="${hotle.numAvail}"/></td>
+							<td><input name="custName" type="text" /></td>
+							<td><input type="submit" value="预定"/></td>
+						</form>
+					</tr>
+				</c:forEach>
+
 			
 			<tr>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="customer_edit.jsp?method=addCustomer">添加客户</a></td>
+				<td></td>
+				<td></td>
+
 			</tr>	
 		</table>
 	</div>

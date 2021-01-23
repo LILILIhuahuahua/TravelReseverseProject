@@ -11,7 +11,11 @@
     <title>$Title$</title>
   </head>
   <body>
-  <!--静态包含管理界面-->
-  <%@include file="/pages/common/manager_mune.jsp"%>
+  <div>
+    <a href="pages/manager/customerServlet?action=list">客户管理</a>
+    <a href="pages/manager/hotleServlet?action=list">酒店预定</a>
+    <a href="../../index.html">出租车预定</a>
+    <a href="../../index.html">航班预定</a>
+  </div>
   </body>
 </html>

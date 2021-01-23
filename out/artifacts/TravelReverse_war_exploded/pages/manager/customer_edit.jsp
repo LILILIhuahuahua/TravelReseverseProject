@@ -14,10 +14,11 @@
 	h1 a {
 		color:red;
 	}
-	
 	input {
+
 		text-align: center;
 	}
+
 </style>
 </head>
 <body>

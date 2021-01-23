@@ -30,13 +30,13 @@ public class HotleDaoTest {
 
     @Test
     public void addHotle() {
-        Hotle hotle = new Hotle(2,"西米米","苏州",100,59,30);
+        Hotle hotle = new Hotle(2,"文辉人才","合肥",150,50,30);
         hotleDao.addHotle(hotle);
     }
 
     @Test
     public void updateHotle() {
-        Hotle hotle = new Hotle(1,"西米米米","苏州",100,59,30);
+        Hotle hotle = new Hotle(4,"文辉人才","北京",300,100,50);
         System.out.println(hotleDao.updateHotle(hotle));
     }
 
