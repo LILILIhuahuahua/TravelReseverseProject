@@ -39,9 +39,11 @@
 			<tr>
 				<td>客户ID</td>
 				<td>客户名字</td>
-				<td colspan="3">操作</td>
+				<td>客户ID</td>
+				<td>客户名字</td>
+				<td colspan="1">操作</td>
 			</tr>
-			<!--使用JSTL进行全部图书的展示-->
+			<!--使用JSTL进行全部航班的展示-->
 			<c:forEach items="${requestScope.customerList}" var="customer">
 				<tr>
 					<td>${customer.id}</td>

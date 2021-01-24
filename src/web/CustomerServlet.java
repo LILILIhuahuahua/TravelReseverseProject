@@ -1,12 +1,8 @@
 package web;
 
 import pojo.*;
-import service.CustomerService;
-import service.HotleService;
-import service.ReservationService;
-import service.impl.CustomerServiceImpl;
-import service.impl.HotleServiceImpl;
-import service.impl.ReservationServiceImpl;
+import service.*;
+import service.impl.*;
 import utils.WebUtils;
 
 import javax.servlet.ServletException;
@@ -26,6 +22,8 @@ public class CustomerServlet extends BaseServlet{
     CustomerService customerService = new CustomerServiceImpl();
     ReservationService reservationService  = new ReservationServiceImpl();
     HotleService hotleService = new HotleServiceImpl();
+    FlightService flightService = new FlightServiceImpl();
+    CarService carService = new CarServiceImpl();
 
     protected void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("listAllCustomer");
@@ -116,12 +114,19 @@ public class CustomerServlet extends BaseServlet{
                 //航班类
                if(reservation.getResvType().equals("hotel")){
                    Hotle hotle = hotleService.queryHolteById(reservation.getResvId());
-                   index++;
                    //构建一个item
                    ReserItem item = new ReserItem(index++,"hotel",hotle.getLocation()+"."+hotle.getName(),hotle.getPrice());
                    reserItems.add(item);
-               }else{
-
+               }else if (reservation.getResvType().equals("flight")){
+                    Flight flight = flightService.queryFlightById(reservation.getResvId());
+                   //构建一个item
+                   ReserItem item = new ReserItem(index++,"flight",flight.getFlightNum()+"号航班 "+flight.getFromCity()+"-->"+flight.getArivCity(),flight.getPrice());
+                   reserItems.add(item);
+               }else if (reservation.getResvType().equals("car")){
+                   Car car = carService.queryCarById(reservation.getResvId());
+                   //构建一个item
+                   ReserItem item = new ReserItem(index++,"car",car.getLocation(),car.getPrice());
+                   reserItems.add(item);
                }
             }
         }

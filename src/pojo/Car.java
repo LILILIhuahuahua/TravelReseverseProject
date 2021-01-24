@@ -11,6 +11,9 @@ public class Car {
     private Integer numCars;
     private Integer numAvail;
 
+    public Car() {
+    }
+
     @Override
     public String toString() {
         return "car{" +

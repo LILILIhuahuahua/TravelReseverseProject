@@ -9,6 +9,7 @@
 <div>
     <a href="customerServlet?action=list">客户管理</a>
     <a href="hotleServlet?action=list">酒店预定</a>
-    <a href="../../index.html">出租车预定</a>
-    <a href="../../index.html">航班预定</a>
+    <a href="flightServlet?action=list">航班预定</a>
+    <a href="carServlet?action=list">出租车预定</a>
+
 </div>

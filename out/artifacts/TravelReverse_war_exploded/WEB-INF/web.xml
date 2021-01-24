@@ -23,4 +23,26 @@
         <servlet-name>HotleServlet</servlet-name>
         <url-pattern>/pages/manager/hotleServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FlightServlet</servlet-name>
+        <servlet-class>web.FlightServlet</servlet-class>
+    </servlet>
+    <!--mapping标识具体servlet的访问url-->
+    <servlet-mapping>
+        <servlet-name>FlightServlet</servlet-name>
+        <url-pattern>/pages/manager/flightServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CarServlet</servlet-name>
+        <servlet-class>web.CarServlet</servlet-class>
+    </servlet>
+    <!--mapping标识具体servlet的访问url-->
+    <servlet-mapping>
+        <servlet-name>CarServlet</servlet-name>
+        <url-pattern>/pages/manager/carServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

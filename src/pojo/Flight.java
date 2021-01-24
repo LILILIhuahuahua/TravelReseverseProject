@@ -9,16 +9,37 @@ package pojo;
 //Bean类：flight
 public class Flight {
     private Integer id;
-    private Integer flightNum;
+    private String flightNum;
     private Integer price;
     private Integer numSeats;
     private Integer numAvail; //剩余位子数
     private String  fromCity;
     private String  arivCity;
 
+    public Flight(Integer id, String flightNum, Integer price, Integer numSeats, Integer numAvail, String fromCity, String arivCity) {
+        this.id = id;
+        this.flightNum = flightNum;
+        this.price = price;
+        this.numSeats = numSeats;
+        this.numAvail = numAvail;
+        this.fromCity = fromCity;
+        this.arivCity = arivCity;
+    }
+
+    public Flight() {
+    }
+
     @Override
     public String toString() {
-        return super.toString();
+        return "Flight{" +
+                "id=" + id +
+                ", flightNum='" + flightNum + '\'' +
+                ", price=" + price +
+                ", numSeats=" + numSeats +
+                ", numAvail=" + numAvail +
+                ", fromCity='" + fromCity + '\'' +
+                ", arivCity='" + arivCity + '\'' +
+                '}';
     }
 
     public Integer getId() {
@@ -29,11 +50,11 @@ public class Flight {
         this.id = id;
     }
 
-    public Integer getFlightNum() {
+    public String getFlightNum() {
         return flightNum;
     }
 
-    public void setFlightNum(Integer flightNum) {
+    public void setFlightNum(String flightNum) {
         this.flightNum = flightNum;
     }
 

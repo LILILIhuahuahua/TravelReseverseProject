@@ -45,9 +45,12 @@
 		width: 60px;
 		text-align: center;
 	}
-		table{
-			margin-bottom: 10px;
-		}
+	table{
+		margin-bottom: 10px;
+	}
+	td{
+		width: 150px;
+	}
 	</style>
 </head>
 <body>
@@ -65,7 +68,7 @@
 		<h2>"${requestScope.reserDetail.customer.custName}"的预约详情</h2>
 		<h2>总价：</h2>
 		<h3>${requestScope.reserDetail.sumPrice}</h3>
-		<table align="center">
+		<table align="center" >
 			<tr>
 				<td>预定ID</td>
 				<td>预约类型</td>
@@ -76,16 +79,18 @@
 			<!--使用JSTL进行全部图书的展示-->
 			<c:forEach items="${requestScope.reserDetail.reserItems}" var="item">
 				<tr>
-					<td>${item.id}</td>
-					<td>${item.resvType}</td>
-					<td>${item.resvDetail}</td>
-					<td>${item.price}</td>
-					<td><a class="deleteClass" >删除</a></td>
+					<td width="18%">${item.id}</td>
+					<td width="18%">${item.resvType}</td>
+					<td width="28%">${item.resvDetail}</td>
+					<td width="18%">${item.price}</td>
+					<td width="18%"><a class="deleteClass" >删除</a></td>
 				</tr>
 			</c:forEach>
 
 			
 			<tr>
+				<td></td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
